@@ -1,0 +1,27 @@
+.hero_main{
+    width: 100%;
+    height: 100vh;
+   background-image: url("./a.jpg");
+   background-repeat: no-repeat;
+   background-position: center;
+   background-size: cover;
+   display: flex;
+   align-items: center;
+}
+
+.hero_main .detail_div{
+    width: 500px;
+    position: absolute;
+    left: 21%;
+    top: 30%;
+}
+
+.hero_main .detail_div h1{
+    font-size: 56px;
+}
+
+.hero_main .detail_div p{
+   color: #5a5e71;
+   font-size: 1.05rem;
+   line-height: 1.5rem;
+}
