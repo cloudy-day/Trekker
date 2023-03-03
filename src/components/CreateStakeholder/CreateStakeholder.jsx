@@ -75,7 +75,6 @@ const CreateStakeholder = () => {
                         onChange={(e) => setName(e.target.value)}
                         />
                     </label>
-                    <br />
                     <label className={styles.label}>
                         <span className={styles.label_header}>Public Key</span>
                         <input
@@ -85,7 +84,6 @@ const CreateStakeholder = () => {
                         onChange={(e) => setKey(e.target.value)}
                         />
                     </label>
-                    <br />
                     <label className={styles.label}>
                         <span className={styles.label_header}>Web. Address</span>
                         <input
@@ -95,7 +93,6 @@ const CreateStakeholder = () => {
                         onChange={(e) => setWebAddress(e.target.value)}
                         />
                     </label>
-                    <br />
                     <label className={styles.label}>
                        <span className={styles.label_header}>Location</span>
                         <input
@@ -105,13 +102,13 @@ const CreateStakeholder = () => {
                         onChange={(e) => setLocation(e.target.value)}
                         />
                     </label>
-                    <br />
                     <label className={styles.label}>
                     <span className={styles.label_header}>Stakeholder</span>
                         <select
                         
                         value={option}
                         onChange={(e)=> setOption(e.target.value)}
+                        className={styles.drpdown}
                         >
                             <option>Select the relevant stakeholder</option>
                             <option value="Manufacturer">Manufacturer</option>
@@ -120,7 +117,6 @@ const CreateStakeholder = () => {
 
                         </select>
                     </label>
-                    <br />
                     <button className={styles.btn}  type="submit">Submit</button>
                 </form>
               

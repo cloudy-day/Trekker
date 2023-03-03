@@ -35,7 +35,7 @@ const CreateMedicine = () => {
                         onChange={(e) => setManufacturer(e.target.value)}
                         />
                     </label>
-                    <br />
+
                     <label className={styles.label}>
                         <span className={styles.label_header}>Medicine Name</span>
                         <input
@@ -45,7 +45,7 @@ const CreateMedicine = () => {
                         onChange={(e) => setMedicine(e.target.value)}
                         />
                     </label>
-                    <br />
+
                     <label className={styles.label}>
                         <span className={styles.label_header}>Batch No</span>
                         <input
@@ -55,7 +55,7 @@ const CreateMedicine = () => {
                         onChange={(e) => setBatch(e.target.value)}
                         />
                     </label>
-                    <br />
+
                     <label className={styles.label}>
                         <span className={styles.label_header}>Dosage</span>
                         <input
@@ -65,7 +65,7 @@ const CreateMedicine = () => {
                         onChange={(e) => setDosage(e.target.value)}
                         />
                     </label>
-                    <br />
+
                     <label className={styles.label}>
                        <span className={styles.label_header}> Price</span>
                         <input
@@ -75,17 +75,17 @@ const CreateMedicine = () => {
                         onChange={(e) => setPrice(e.target.value)}
                         />
                     </label>
-                    <br />
+
                     <label className={styles.label}>
                        <span className={styles.label_header}> Manufacturing Date</span>
                         <DatePicker showIcon className={styles.input_field} selected={mfDate} onChange={(date)=> setMfDate(date)} />
                     </label>
-                    <br />
+
                     <label className={styles.label}>
                         <span className={styles.label_header}>Expiration Date</span>
                         <DatePicker showIcon className={styles.input_field} selected={expDate} onChange={(date)=> setExpDate(date)} />
                     </label>
-                    <br />
+
                     
                     <button className={styles.btn} type="submit">Submit</button>
                 </form>

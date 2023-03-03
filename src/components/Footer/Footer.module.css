@@ -6,6 +6,8 @@
     align-items: center;
     /* background: linear-gradient(to right, #5f3dc4, #1864ab); */
     background-color:   #11304c;
+    position: relative;
+    bottom: 0;
 }
 
 .footer_main .footer_subdiv{
