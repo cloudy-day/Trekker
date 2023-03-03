@@ -16,7 +16,7 @@ contract User {
     }
     Stakeholder[] private stakeholders;
     modifier onlyOwner () {
-        require(msg.sender == owner."only  DRB can do this");
+        require(msg.sender == owner);
         _;
     }
     function createStakeholder(string memory key,string memory name, string memory wAdd,string memory  location,string memory typ) public onlyOwner {
