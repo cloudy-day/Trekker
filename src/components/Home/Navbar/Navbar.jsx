@@ -7,7 +7,7 @@ const Navbar = () => {
   return (
     <>
     <Box className={styles.main}>
-      <AppBar sx={{bgcolor:"#EEEEEE", boxShadow:"none",width:"100%", display:"flex", justifyContent:"center"}} >
+      <AppBar sx={{bgcolor:"#EEEEEE", boxShadow:"none",width:"100%", display:"flex", justifyContent:"center",height:"80px"}} >
       <Box sx={{
         width:"60%",
         margin:"0 auto",

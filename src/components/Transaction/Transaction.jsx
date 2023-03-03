@@ -34,7 +34,6 @@ const Transaction = () => {
                         onChange={(e) => setProviderName(e.target.value)}
                         />
                     </label>
-                    <br />
                     <label className={styles.label}>
                         <span className={styles.label_header}>Receiver Name</span>
                         <input
@@ -44,7 +43,6 @@ const Transaction = () => {
                         onChange={(e) => setReceiverName(e.target.value)}
                         />
                     </label>
-                    <br />
                     <label className={styles.label}>
                         <span className={styles.label_header}>Medicine Name</span>
                         <input
@@ -54,7 +52,6 @@ const Transaction = () => {
                         onChange={(e) => setMedicineName(e.target.value)}
                         />
                     </label>
-                     <br />
                     <label className={styles.label}>
                         <span className={styles.label_header}>Batch No.</span>
                         <input
@@ -64,13 +61,11 @@ const Transaction = () => {
                         onChange={(e) => setBatchNo(e.target.value)}
                         />
                     </label>
-                    <br />
                     <label className={styles.label}>
                         <span className={styles.label_header}>Delivery  Date</span>
                         <DatePicker showIcon className={styles.input_field} selected={selectedDate} onChange={(date)=> setSelectedDate(date)} />
                     </label>
                     
-                    <br />
                     <button className={styles.btn} type="submit">Submit</button>
                 </form>
               
