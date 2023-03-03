@@ -1,7 +1,9 @@
 import { Box } from '@mui/material'
-import React,{useState} from 'react'
+import React,{useEffect, useState} from 'react'
 import styles from '../CreateMedicine/CreateMedicine.module.css'
 import image from './a.jpg'
+import ContractAbi from '../../abis/User.json'
+import {loadWeb3} from '../../utils/loadWeb3'
 
 const CreateStakeholder = () => {
 
@@ -12,12 +14,53 @@ const CreateStakeholder = () => {
   const [location, setLocation] = useState("");
   const [option, setOption] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // handle form submission logic here
+
+      if (name && key && webAddress && location && option && option!=="Select the relevant stakeholder") {
+        
+          console.log(name + key + webAddress + location + option);
+        
+        const web3 = window.web3;
+        const account = await web3.eth.getAccounts();
+        const networkID = await web3.eth.net.getId();
+        console.log(account);
+        const networkData = ContractAbi.networks[networkID];
+
+        if (networkData) {
+
+            const contract = new web3.eth.Contract(
+                ContractAbi.abi,
+                networkData.address
+            );
+
+            await contract.methods.createStakeholder(
+                key.toString(),
+                name.toString(),
+                webAddress.toString(),
+                location.toString(),
+                option.toString()
+            )
+            .send({ from: account[0] })
+            .once('reciept', (reciept) => {
+                console.log(reciept);
+            });
+            
+        }
+        
+        
+    }
+    else {
+        alert("Fill up the form correctly");
+    }
+      
+    
   };
 
-
+    useEffect(() => {
+        // loadWeb3();
+        
+    },[]);
 
   return (
     <Box className={styles.createMedicine_main} sx={{backgroundImage: `url(${image})`}}>        
@@ -78,7 +121,7 @@ const CreateStakeholder = () => {
                         </select>
                     </label>
                     <br />
-                    <button className={styles.btn} type="submit">Submit</button>
+                    <button className={styles.btn}  type="submit">Submit</button>
                 </form>
               
       </Box>

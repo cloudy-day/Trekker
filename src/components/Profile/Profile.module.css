@@ -6,7 +6,7 @@
     background-color: #c0c1c8;
 }
 .profile_main .card_container{
-    width: 400px;
+    width: 600px;
     display: flex;
     flex-direction: column;
     background-color: #fff;
