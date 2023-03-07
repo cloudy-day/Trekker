@@ -19,7 +19,7 @@ const CreateStakeholder = () => {
 
       if (name && key && webAddress && location && option && option!=="Select the relevant stakeholder") {
         
-          console.log(name + key + webAddress + location + option);
+        console.log(name + key + webAddress + location + option);
         
         const web3 = window.web3;
         const account = await web3.eth.getAccounts();
@@ -35,7 +35,7 @@ const CreateStakeholder = () => {
             );
 
             await contract.methods.createStakeholder(
-                key.toString(),
+                key,
                 name.toString(),
                 webAddress.toString(),
                 location.toString(),
@@ -58,7 +58,7 @@ const CreateStakeholder = () => {
   };
 
     useEffect(() => {
-        // loadWeb3();
+        loadWeb3();
         
     },[]);
 

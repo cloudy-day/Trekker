@@ -13,7 +13,7 @@ const QrCode = () => {
     let image = canvas.toDataURL("image/png");
     let anchor = document.createElement("a");
     anchor.href = image;
-    anchor.download = `qr-code.png`;
+    anchor.download = `${url}.png`;
     document.body.appendChild(anchor);
     anchor.click();
     document.body.removeChild(anchor);
@@ -39,12 +39,12 @@ const QrCode = () => {
       <div ref={qrRef} className={styles.qrcode}>{qrcode}</div>
       <div className={styles.input__group}>
         <form onSubmit={downloadQRCode} className={styles.container}>
-          <label><b>Enter Medicne ID and Batch ID</b></label>
+          <label><b>Enter Medicne Name - Batch ID</b></label>
           <input
             type="text"
             value={url}
             onChange={qrCodeEncoder}
-            placeholder="Follow this syntax MedicineID-BatchID"
+            placeholder="Follow this syntax MedicineName-BatchNo"
           />
           <button type="submit" disabled={!url} className={styles.btn}>
             Download QR code

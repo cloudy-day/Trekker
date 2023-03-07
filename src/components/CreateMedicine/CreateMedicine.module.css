@@ -56,14 +56,9 @@
     border: .2px solid #BDCDD6;
 }
 .createMedicine_main .form_container .input_field:focus{
-        border: .2px solid #30E3DF;
+        border: .2px solid #11304c;
 }
-/* .createMedicine_main .form_container .center{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-} */
+
 
 
 .createMedicine_main .form_container .label .drpdown{
