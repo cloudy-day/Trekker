@@ -10,14 +10,14 @@ contract User {
         string location;
         string typ;
     }
-    // Stakeholder[] private stakeholders;
+    Stakeholder[] private stakeholders;
     mapping(address=>Stakeholder) users;
     constructor()
     {
         owner=msg.sender;
         Stakeholder memory temp = Stakeholder(owner,"DRB","drb.com","Dhaka","Regulatory Body");
         users[owner]=temp;
-        // stakeholders.push(temp);
+        stakeholders.push(temp);
     }
     
     modifier onlyOwner () {
@@ -28,12 +28,25 @@ contract User {
         
         Stakeholder memory temp = Stakeholder(key,name,wAdd,location,typ);
         users[key]=temp;
-        // stakeholders.push(temp);
+        stakeholders.push(temp);
     }
 
     function readStakeholder(address key) public view returns (string memory, string memory) {
         require((users[key].key==key),"User not found");
         return (users[key].name, users[key].typ);
+    }
+
+    function numberofStakeholder(string memory typ) public view returns(uint){
+
+        uint count = 0;
+
+        for(uint i = 0; i < stakeholders.length; i++){
+            if (keccak256(abi.encodePacked(stakeholders[i].typ)) == keccak256(abi.encodePacked(typ))){
+                count++;
+            } 
+        }
+
+        return count;
     }
 
 }

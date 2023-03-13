@@ -19,6 +19,9 @@ const TrackMedicine = () => {
 
 
   const handleFileUpload = async (e) => {
+
+    setTranDetails([]);
+    setMedDetails([]);
     
     const file = e.target.files[0];
     setFilePreview(e.target.files[0]);
@@ -53,11 +56,16 @@ const TrackMedicine = () => {
               networkData1.address
             );
 
-            const medicineDetails = await contract1.methods.getMedicineDetails(
+            try {
+              const medicineDetails = await contract1.methods.getMedicineDetails(
               medicineName.toString(), batchNo.toString()).call();
             
-            console.log(medicineDetails);
-            setMedDetails(medicineDetails);
+              console.log(medicineDetails);
+              setMedDetails(medicineDetails);
+            }
+            catch (e) {
+              alert("Counterfeit Medicine have been detected!")
+            }
 
           }
 
@@ -83,6 +91,10 @@ const TrackMedicine = () => {
       } catch (e) {
         console.log(e);
       }
+
+      setFilePreview(null);
+      setMedicineName("");
+      setBatchNo("");
       
     }
     
@@ -135,7 +147,10 @@ const TrackMedicine = () => {
         </Box>
         </Box>
 
-      <TransactionLists medData={medDetails} tranData={tranDetails} />        
+      {
+        (medDetails || tranDetails) &&
+        <TransactionLists medData={medDetails} tranData={tranDetails} /> 
+      }       
     </Box>
   )
 }

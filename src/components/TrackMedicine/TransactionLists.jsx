@@ -13,11 +13,11 @@ const TransactionLists = ({ medData, tranData }) => {
         {
           Object.keys(medData).length > 0 && 
           <Box className={styles.details}>
-          <h3>Manufacturer : <span>{medData.manufacturerName}</span></h3>
-          <h3>Price : <span>{medData[2]}</span></h3>
-          <h3>Manufacture : <span>{medData[3]}</span></h3>
-          <h3>Expire : <span>{medData[4]}</span></h3>
-        </Box>
+            <h3>Manufacturer : <span>{medData.manufacturerName}</span></h3>
+            <h3>Price : <span>{medData[2]}</span></h3>
+            <h3>Manufacture : <span>{medData[3]}</span></h3>
+            <h3>Expire : <span>{medData[4]}</span></h3>
+          </Box>
      }
 
         {/* transactions */}

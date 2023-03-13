@@ -62,14 +62,14 @@ const Transaction = () => {
 
                 
                 
-
+                console.log(medData);
                 
 
 
                 
 
                 if (!medData) {
-                    alert("Transaction isn't possible because of non  exist medicine.");
+                    alert("Transaction isn't allowed because medicine does not exist.");
                     setReceiverKey("");
                     setMedicineName("");
                     setBatchNo("");
@@ -78,64 +78,73 @@ const Transaction = () => {
             
                 else {
 
-                    const { data } = await getProfile(receiverKey);
-                    let ok = 0;
+                    try {
+                        const { data } = await getProfile(receiverKey);
+                        let ok = 0;
 
-                    if (networkData) {
+                        if (networkData) {
 
-                        const contract = new web3.eth.Contract(
-                            ContractAbi.abi,
-                            networkData.address
-                        );
+                            const contract = new web3.eth.Contract(
+                                ContractAbi.abi,
+                                networkData.address
+                            );
 
-                        if (providerType === "Manufacturer") {
-                            if (data[1] === "Distributor" || data[1] === "Retailer") {
-                                ok = 1;
+                            if (providerType === "Manufacturer") {
+                                if (data[1] === "Distributor") {
+                                    ok = 1;
+                                }
+                                else {
+                                    alert("Transaction is not allowed");
+                                }
+                            
                             }
-                            else {
-                                alert("Transaction is not possible");
+                            else if (providerType === "Distributor") {
+
+                                if (data[1] === "Retailer") {
+                                    ok = 1;
+                                }
+                                else {
+                                    alert("Transaction is not allowed");
+                                }
+                            
                             }
-                        
-                        }
-                        else if (providerType === "Distributor") {
 
-                            if (data[1] === "Retailer") {
-                                ok = 1;
+                            if (ok) {
+
+                                console.log(data[0] + data[1]);
+
+                                await contract.methods.createTransaction(
+                                    providerKey.toString(),
+                                    providerName.toString(),
+                                    receiverKey.trim(),
+                                    data[0].toString(),
+                                    medicineName.toString().toLowerCase(),
+                                    batchNo.toString().toLowerCase().trim(),
+                                    selectedDate.toISOString().split('T')[0],
+                                )
+                                    .send({ from: account[0] })
+                                    .once('reciept', (reciept) => {
+                                        console.log(reciept);
+                                    });
+                            
                             }
-                            else {
-                                alert("Transaction is not possible");
-                            }
-                        
                         }
-
-                        if (ok) {
-
-                            console.log(data[0] + data[1]);
-
-                            await contract.methods.createTransaction(
-                                providerKey.toString(),
-                                providerName.toString(),
-                                receiverKey.trim(),
-                                data[0].toString(),
-                                medicineName.toString().toLowerCase(),
-                                batchNo.toString().toLowerCase().trim(),
-                                selectedDate.toISOString().split('T')[0],
-                            )
-                                .send({ from: account[0] })
-                                .once('reciept', (reciept) => {
-                                    console.log(reciept);
-                                });
-                        
-                        }
-                        else {
-                            alert("Receiver Key  is not registered.");
-                        }
-                        
                     }
+                    catch (err)
+                    {
+
+                        alert("Receiver Stakeholder is not registered.");
+                    }
+
+                   
+                    
+                       
+                        
+                }
             
 
                     
-                }
+                
         
             
             
