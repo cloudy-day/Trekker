@@ -45,6 +45,7 @@ const QrCode = () => {
             value={url}
             onChange={qrCodeEncoder}
             placeholder="Follow this syntax MedicineName-BatchNo"
+            className={styles.input}
           />
           <button type="submit" disabled={!url} className={styles.btn}>
             Download QR code

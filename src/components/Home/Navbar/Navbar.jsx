@@ -64,6 +64,18 @@ const navItems = [
     link: "/login",
     role: [1,2,3,4],
   },
+  {
+    id: 9,
+    title: "FAQ",
+    link: "/faq",
+    role: [5],
+  },
+  {
+    id: 10,
+    title: "Contact Us",
+    link: "/contactUs",
+    role: [5],
+  },
 ];
 
 

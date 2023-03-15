@@ -1,0 +1,117 @@
+.container_main{
+    width: 100%;
+    height: 100vh;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container_main .container {
+  width: 60%;
+  margin: 50px auto;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+
+.container_main .container .contact_box {
+  display: flex;
+  justify-content: space-around;
+  /* margin-top: 150px; */
+}
+
+
+.container_main .container .contact_box .contact_left {
+  background: #fff;
+  flex-basis: 60%;
+  padding: 40px 60px;
+  font-weight: "bold";
+  border: none;
+}
+
+.container_main .container .contact_box .contact_left h3 {
+  margin-bottom: 30px;
+  font-weight: 600px;
+}
+
+
+.container_main .container .contact_box .contact_left .contact_row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.container_main .container .contact_box .contact_left .contact_row .contact_group {
+  flex-basis: 45%;
+}
+
+
+.container_main .container .contact_box .contact_left .contact_row .contact_group .label{
+  color: #000;
+  margin: 10px;
+  display: block;
+  font-weight: "bold";
+}
+.container_main .container .contact_box .contact_left .label{
+  color: #000;
+  margin: 10px;
+  display: block;
+  font-weight: "bold";
+}
+
+.container_main .container .contact_box .contact_left .contact_row .contact_group .input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid black;
+  padding: 6px 6px;
+  /* border-radius: 10px; */
+  overflow: hidden;
+  outline: none;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.container_main .container .contact_box .contact_left .textarea {
+  width: 100%;
+  border: 1px solid #ccc;
+  outline: none;
+  overflow: hidden;
+  padding: 10px;
+  /* margin-top: 5px; */
+}
+
+.container_main .container .contact_box .contact_left .btn{
+  margin-top: 15px;
+  background: #043464;
+  color: #fff;
+  padding: 8px 20px;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.7);
+}
+
+
+
+
+.container_main .container .contact_box .contact_right {
+  flex-basis: 40%;
+  padding: 40px;
+  background: linear-gradient(to right, #3A98B9, #043464);
+  color: #fff;
+  font-weight: "bold";
+  /* font-size: 20px; */
+  border: none;
+}
+
+.container_main .container .contact_box .contact_right h3 {
+  margin-bottom: 30px;
+  font-weight: 600px;
+}
+
+
+
+
+
+.container_main .container .contact_box .contact_right .table_data{
+  padding-right: 20px;
+  padding-top: 20px;
+}
